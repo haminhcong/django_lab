@@ -30,7 +30,9 @@ class ReadLog:
         try:
             pointer = self.get_start_line(start_date)
         except self.OverDateException:
-            pass
+            return LogSummary(info_number, warning_number, error_number, debug_number, other_number,
+                                      info_number + warning_number + error_number + debug_number + other_number)
+
         print(pointer)
         end_line = len(self.data)
         while pointer < end_line:
